@@ -1,23 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import {Component} from 'vidom';
 
-class TreeLeaf extends React.Component {
-  shouldComponentUpdate(nextProps, nextState) {
-    return this.props.data !== nextProps.data;
+class TreeLeaf extends Component {
+  shouldUpdate(newAttrs, prevAttrs) {
+    return newAttrs.data !== prevAttrs.data;
   }
 
-  render() {
-    return (<li className="TreeLeaf">{this.props.data.id}</li>);
+  onRender(attrs) {
+    return (<li class="TreeLeaf">{attrs.data.id}</li>);
   }
 }
 
-class TreeNode extends React.Component {
-  shouldComponentUpdate(nextProps, nextState) {
-    return this.props.data !== nextProps.data;
+class TreeNode extends Component {
+  shouldUpdate(newAttrs, prevAttrs) {
+    return newAttrs.data !== prevAttrs.data;
   }
 
-  render() {
-    var data = this.props.data;
+  onRender(attrs) {
+    var data = attrs.data;
     var children = [];
 
     for (var i = 0; i < data.children.length; i++) {
@@ -29,16 +28,16 @@ class TreeNode extends React.Component {
       }
     }
 
-    return (<ul className="TreeNode">{children}</ul>);
+    return (<ul class="TreeNode">{children}</ul>);
   }
 }
 
-export class Tree extends React.Component {
-  shouldComponentUpdate(nextProps, nextState) {
-    return this.props.data !== nextProps.data;
+export class Tree extends Component {
+  shouldUpdate(newAttrs, prevAttrs) {
+    return newAttrs.data !== prevAttrs.data;
   }
 
-  render() {
-    return (<div className="Tree"><TreeNode data={this.props.data.root} /></div>);
+  onRender(attrs) {
+    return (<div class="Tree"><TreeNode data={attrs.data.root} /></div>);
   }
 }

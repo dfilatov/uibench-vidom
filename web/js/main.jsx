@@ -1,18 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import {mountToDomSync} from 'vidom';
 import {Main} from './ui/main';
 
-uibench.init('React', '0.14.6');
+uibench.init('Vidom', '0.3.3');
 
 document.addEventListener('DOMContentLoaded', function(e) {
   var container = document.querySelector('#App');
 
   uibench.run(
       function(state) {
-        ReactDOM.render(<Main data={state}/>, container);
+        mountToDomSync(container, <Main data={state}/>);
       },
       function(samples) {
-        ReactDOM.render(<pre>{JSON.stringify(samples, null, ' ')}</pre>, container);
+        mountToDomSync(container, <pre>{JSON.stringify(samples, null, ' ')}</pre>);
       }
   );
 });

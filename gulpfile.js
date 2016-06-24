@@ -25,7 +25,7 @@ gulp.task('build', function(callback) {
       loaders: [{
         test: /\.jsx?$/,
         exclude: /(node_modules)/,
-        loaders: ['babel?{ "presets": ["es2015", "react"] }']
+        loaders: ['babel?{ "presets": ["es2015"], "plugins": ["vidom-jsx"] }']
       }]
     },
     plugins: [
@@ -42,7 +42,6 @@ gulp.task('build', function(callback) {
     callback();
   });
 });
-
 
 gulp.task('serve', function(callback) {
   var cfg = {
@@ -63,7 +62,7 @@ gulp.task('serve', function(callback) {
       loaders: [{
         test: /\.jsx?$/,
         exclude: /(node_modules)/,
-        loaders: ['babel?{ "presets": ["es2015", "react"] }']
+        loaders: ['babel?{ "presets": ["es2015"], "plugins": ["vidom-jsx"] }']
       }]
     },
     plugins: [

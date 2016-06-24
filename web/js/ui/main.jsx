@@ -1,16 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import {Component} from 'vidom';
 import {Table} from './table';
 import {Anim} from './anim';
 import {Tree} from './tree';
 
-export class Main extends React.Component {
-  shouldComponentUpdate(nextProps, nextState) {
-    return this.props.data !== nextProps.data;
+export class Main extends Component {
+  shouldUpdate(newAttrs, prevAttrs) {
+    return newAttrs.data !== prevAttrs.data;
   }
 
-  render() {
-    var data = this.props.data;
+  onRender(attrs) {
+    var data = attrs.data;
     var location = data.location;
 
     var section;
@@ -22,6 +21,6 @@ export class Main extends React.Component {
       section = (<Tree data={data.tree}></Tree>);
     }
 
-    return (<div className="Main">{section}</div>);
+    return (<div class="Main">{section}</div>);
   }
 }
