@@ -1,7 +1,7 @@
 import {mountToDomSync} from 'vidom';
 import {Main} from './ui/main';
 
-uibench.init('Vidom', '0.3.3');
+uibench.init('Vidom', '0.3.5');
 
 document.addEventListener('DOMContentLoaded', function(e) {
   var container = document.querySelector('#App');
