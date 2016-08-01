@@ -16,7 +16,7 @@
     "benchmark"
   ],
   "dependencies": {
-    "vidom": "0.3.14"
+    "vidom": "0.3.16"
   },
   "devDependencies": {
     "babel-core": "^6.10.4",
